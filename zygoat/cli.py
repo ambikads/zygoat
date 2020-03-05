@@ -44,6 +44,12 @@ def new(project_name):
     )
 
 
+@cli.command(help="Installs new components without creating a new project")
+def create():
+    for component in components:
+        component.call_phase(Phases.CREATE)
+
+
 @cli.command(help="Lists all of the running phase names")
 def list():
     for component in components:
